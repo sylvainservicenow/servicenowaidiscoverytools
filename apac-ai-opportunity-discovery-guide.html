@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI opportunity discovery | APAC ServiceNow SC guide</title>
+<style>
+:root { color-scheme:light; --ink:#142e29; --muted:#49615b; --paper:#f3f7f4; --line:#d6e2dc; --accent:#086447; --night:#0c2922; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); font:16px/1.55 system-ui,sans-serif; }
+a { color:var(--accent); text-underline-offset:.2em; }
+a:focus-visible, [tabindex]:focus-visible { outline:3px solid #b57615; outline-offset:4px; }
+.shell { max-width:1540px; margin:auto; display:grid; grid-template-columns:238px minmax(0,1fr); }
+aside { align-self:start; position:sticky; top:0; padding:34px 22px; }
+nav { display:grid; gap:3px; }
+nav a { padding:8px 11px; text-decoration:none; border-radius:7px; font-size:.92rem; font-weight:600; }
+nav a:hover,nav a[aria-current] { background:#dceee4; }
+.brand { font-size:.79rem; font-weight:760; letter-spacing:.09em; text-transform:uppercase; margin:0 0 18px 11px; }
+main { padding:28px 32px 56px 0; min-width:0; }
+.hero { background:var(--night); color:#fff; padding:clamp(24px,5vw,64px); border-radius:18px; border-bottom:6px solid #7fe0a6; }
+.hero p { max-width:63ch; color:#d6ebe1; margin-bottom:0; }
+h1,h2,h3,p { margin-top:0; }
+h1 { font-size:clamp(2.15rem,5vw,4.6rem); line-height:1; letter-spacing:-.065em; max-width:13ch; margin-bottom:18px; }
+h2 { font-size:clamp(1.65rem,3vw,2.55rem); line-height:1.1; letter-spacing:-.04em; margin-bottom:10px; }
+h3 { margin:1.5rem 0 .6rem; font-size:1.08rem; }
+section { margin-top:30px; scroll-margin-top:18px; }
+.tool,.shared { background:white; border:1px solid var(--line); border-radius:14px; padding:clamp(18px,3.5vw,42px); }
+section:target { outline:2px solid var(--accent); outline-offset:4px; }
+.lede { color:var(--accent); font-weight:700; }
+.note { border-left:3px solid #2c8b65; background:#e8f4ed; padding:10px 14px; color:#244b3e; }
+.scroller { overflow:auto; max-height:70vh; background:white; border:1px solid var(--line); border-radius:12px; }
+table { border-spacing:0; width:100%; font-size:.86rem; line-height:1.5; }
+th,td { text-align:left; vertical-align:top; padding:12px; border-bottom:1px solid var(--line); min-width:140px; }
+td:nth-child(2),td:nth-child(n+7) { min-width:225px; }
+thead th { position:sticky; top:0; background:#d9ebdf; z-index:2; }
+th:first-child { position:sticky; left:0; background:#eef6f0; }
+thead th:first-child { background:#d9ebdf; z-index:3; }
+tr:last-child td,tr:last-child tbody th { border-bottom:0; }
+dl { margin:0 0 18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,225px),1fr)); gap:0 24px; }
+dl div { border-top:1px solid var(--line); padding:12px 0; }
+dt { font-weight:730; font-size:.89rem; }
+dd { margin:3px 0 0; color:#314b44; }
+.resources { list-style:none; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr)); gap:8px 12px; }
+.resources a { display:block; padding:9px 12px; background:var(--paper); border:1px solid var(--line); border-radius:7px; overflow-wrap:anywhere; }
+.back { display:inline-block; margin-top:12px; font-size:.9rem; }
+.hint { color:var(--muted); font-size:.9rem; margin-bottom:8px; }
+.skip { position:absolute; left:1rem; top:-100px; background:white; padding:8px; z-index:5; }
+.skip:focus { top:8px; }
+@media(max-width:780px) {
+ .shell { display:block; }
+ aside { position:static; padding:16px; }
+ nav { display:flex; flex-wrap:wrap; gap:2px; }
+ .brand { margin-bottom:4px; }
+ main { padding:0 16px 32px; }
+ th:first-child { min-width:105px; max-width:115px; }
+}
+@media print {
+ aside,.skip,.back,.hint { display:none; }
+ .shell { display:block; }
+ main { padding:0; }
+ .hero { background:white; color:black; padding:0; }
+ .hero p { color:black; }
+ #comparison .scroller { display:none; }
+ .tool,.shared { break-inside:avoid; padding:12px; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell">
+<aside>
+<p class="brand">APAC ServiceNow SC guide</p>
+<nav aria-label="Guide sections"><a href="#comparison">Comparison</a><a href="#ai-agent-advisor">AI Agent Advisor</a><a href="#leap">LEAP</a><a href="#forge-mining">Forge Mining</a><a href="#ai-workflow-factory">AI Workflow Factory</a><a href="#pov-hub">POV Hub</a><a href="#ai-agent-advisor-labs">AI Agent Advisor Labs</a><a href="#combined">Combined resource</a></nav>
+</aside>
+<main id="main">
+<header class="hero">
+<h1>AI opportunity discovery</h1>
+<p>Six tools for customer discovery, remediation, transformation, proof of value and internal demos.</p>
+</header>
+<section id="comparison" aria-labelledby="comparison-heading">
+<h2 id="comparison-heading">Compare the tools</h2>
+<p class="note">The comparison reproduces the supplied Employee Works CSV. Treat availability, entitlement and release details as field research. Confirm them against the relevant product or packaging materials before making customer commitments. Moveworks links may require internal access.</p>
+<p class="hint" id="table-hint">Scroll across to see all ten fields, or select a tool for its full profile and resources.</p>
+<div class="scroller" role="region" aria-label="Scrollable comparison table" tabindex="0" aria-describedby="table-hint">
+<table aria-labelledby="comparison-heading"><thead><tr><th scope="col">Tool</th><th scope="col">One-line scope</th><th scope="col">AI-powered?</th><th scope="col">Primary domain</th><th scope="col">Customer-ready?</th><th scope="col">Internal-only?</th><th scope="col">License / entitlement</th><th scope="col">Best use case</th><th scope="col">Overlap / caution</th><th scope="col">Intro / release signal</th></tr></thead><tbody><tr><th scope="row"><a href="#ai-agent-advisor">AI Agent Advisor</a></th><td>Analyzes instance data to identify automation opportunities and recommend or pre-generate AI agents.</td><td>Yes</td><td>Cross-workflow; works from task/case/incident-style records</td><td>Yes, Store</td><td>No</td><td>Available by AI/product tier; field materials say customer needs a license including Now Assist (Pro+ or new commercial model).</td><td>Use as the default starting point for agentic opportunity discovery from real customer data.</td><td>Preferred productized discovery tool; overlaps with Forge Mining and LEAP but is broader than LEAP and more productized than Labs.</td><td>Australia release notes show Store availability and standard AI setup activation.</td></tr><tr><th scope="row"><a href="#leap">LEAP</a></th><td>AIOps capability that finds recurring incident patterns and generates resolution steps, playbooks, and related artifacts.</td><td>Yes</td><td>ITOM / AIOps</td><td>Yes, Store</td><td>No</td><td>Requires ServiceNow Otto for ITOM / LEAP Store app; field material says ITOM Professional Plus or bundles including it, plus separate Playbook Assist entitlement for generating a LEAP.</td><td>Use when the use case is recurring IT operations incidents, remediation, or playbook generation.</td><td>Best for operational remediation and playbooks, not broad cross-workflow agentic opportunity discovery.</td><td>Q2 2025 GA materials; market launch and Store publication shown January 20, 2026 in Australia release materials.</td></tr><tr><th scope="row"><a href="#forge-mining">Forge Mining</a></th><td>One-click FDE discovery accelerator that combines multiple signals into a field-ready recommendation story.</td><td>Partly / indirectly</td><td>Cross-workflow; examples seen in ITSM, HRSD, and Customer Service</td><td>Store-listed scoped app, but field-positioned tool</td><td>Mostly positioned as FDE / AC tool</td><td>Not clearly documented in the sources found.</td><td>Use when an SC or AC team wants a rapid discovery readout and business story from customer process data.</td><td>Uses mining and advisor-style signals; do not confuse it with standalone Process Mining.</td><td>Internal briefs and installation guides active in 2026.</td></tr><tr><th scope="row"><a href="#ai-workflow-factory">AI Workflow Factory</a></th><td>Packaged offering for continuous transformation across discover, build, run, and extend.</td><td>Yes</td><td>Cross-workflow / enterprise-wide</td><td>Yes</td><td>No</td><td>AI Workflow Factory Prime SKU (FF or UU); internal pricing and packaging materials show bundled platform capabilities and entitlements.</td><td>Use when the conversation is enterprise-wide transformation, not just one discovery problem.</td><td>Umbrella commercial offer that packages several capabilities; not a single recommendation engine.</td><td>AI Workflow Factory Prime FAQ effective September 10, 2026.</td></tr><tr><th scope="row"><a href="#pov-hub">POV Hub</a></th><td>Internal POV operating framework and hub for running proof-of-value motions.</td><td>No evidence it is itself an AI recommendation tool</td><td>Pre-sales / POV operations</td><td>No</td><td>Yes</td><td>Not applicable as a customer product.</td><td>Use when running or coordinating a POV motion, not when discovering automation opportunities inside production data.</td><td>Related to evaluation delivery and execution, not to recommendation engines.</td><td>Internal POV process and blueprint materials active in 2026.</td></tr><tr><th scope="row"><a href="#ai-agent-advisor-labs">AI Agent Advisor Labs</a></th><td>Pre-sales lab package of the advisor concept, formerly AgentScout.</td><td>Yes, in purpose</td><td>Pre-sales / labs</td><td>No evidence of GA productization</td><td>Yes</td><td>Not found; distributed as internal application packages / XMLs.</td><td>Use when SCs want a lab or demo environment rather than the customer-facing GA product.</td><td>Easy to confuse with AI Agent Advisor; treat it as internal enablement, not the production product.</td><td>Internal package versions 2.8–3.0.1 seen in 2026.</td></tr></tbody></table>
+</div>
+</section>
+<section class="tool" id="ai-agent-advisor" aria-labelledby="ai-agent-advisor-heading">
+    <header><h2 id="ai-agent-advisor-heading">AI Agent Advisor</h2><p class="lede">Discover agent opportunities</p></header>
+    <dl><div><dt>One-line scope</dt><dd>Analyzes instance data to identify automation opportunities and recommend or pre-generate AI agents.</dd></div><div><dt>AI-powered?</dt><dd>Yes</dd></div><div><dt>Primary domain</dt><dd>Cross-workflow; works from task/case/incident-style records</dd></div><div><dt>Customer-ready?</dt><dd>Yes, Store</dd></div><div><dt>Internal-only?</dt><dd>No</dd></div><div><dt>License / entitlement</dt><dd>Available by AI/product tier; field materials say customer needs a license including Now Assist (Pro+ or new commercial model).</dd></div><div><dt>Best use case</dt><dd>Use as the default starting point for agentic opportunity discovery from real customer data.</dd></div><div><dt>Overlap / caution</dt><dd>Preferred productized discovery tool; overlaps with Forge Mining and LEAP but is broader than LEAP and more productized than Labs.</dd></div><div><dt>Intro / release signal</dt><dd>Australia release notes show Store availability and standard AI setup activation.</dd></div></dl>
+    <p class="note">Confirm the applicable Now Assist entitlement against the customer’s contract and instance before planning an evaluation.</p>
+    <h3>Moveworks resources</h3>
+    <ul class="resources"><li><a href="https://app.moveworks.ai/r?v2_XraQyJReQwy4pcqv" target="_blank" rel="noopener noreferrer">Exploring AI Agent Advisor <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2__wz8wO7DBS6vQeAQ" target="_blank" rel="noopener noreferrer">AI Agent Advisor landing page <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_I_9Nyoc0fcLKOllT" target="_blank" rel="noopener noreferrer">AI Agent Advisor in AI Agent Studio <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_x4rmFZPQy8YnLxmF" target="_blank" rel="noopener noreferrer">AI Agent Advisor release notes from Xanadu to Australia <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_mPBw__ds3BbDeJ7h" target="_blank" rel="noopener noreferrer">AI Agent Advisor Product Overview Deck <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_3N5ZflLe7CIuchZO" target="_blank" rel="noopener noreferrer">DRAFT AI Agent Advisor FAQ March <span aria-hidden="true">↗</span></a></li></ul>
+    <a class="back" href="#comparison">↑ Back to comparison</a>
+    </section><section class="tool" id="leap" aria-labelledby="leap-heading">
+    <header><h2 id="leap-heading">LEAP</h2><p class="lede">Remediate recurring IT incidents</p></header>
+    <dl><div><dt>One-line scope</dt><dd>AIOps capability that finds recurring incident patterns and generates resolution steps, playbooks, and related artifacts.</dd></div><div><dt>AI-powered?</dt><dd>Yes</dd></div><div><dt>Primary domain</dt><dd>ITOM / AIOps</dd></div><div><dt>Customer-ready?</dt><dd>Yes, Store</dd></div><div><dt>Internal-only?</dt><dd>No</dd></div><div><dt>License / entitlement</dt><dd>Requires ServiceNow Otto for ITOM / LEAP Store app; field material says ITOM Professional Plus or bundles including it, plus separate Playbook Assist entitlement for generating a LEAP.</dd></div><div><dt>Best use case</dt><dd>Use when the use case is recurring IT operations incidents, remediation, or playbook generation.</dd></div><div><dt>Overlap / caution</dt><dd>Best for operational remediation and playbooks, not broad cross-workflow agentic opportunity discovery.</dd></div><div><dt>Intro / release signal</dt><dd>Q2 2025 GA materials; market launch and Store publication shown January 20, 2026 in Australia release materials.</dd></div></dl>
+    <p class="note">Confirm the Store app, ITOM entitlement and any separate Playbook Assist entitlement. The CSV records separate dates for GA materials and Store publication.</p>
+    <h3>Moveworks resources</h3>
+    <ul class="resources"><li><a href="https://app.moveworks.ai/r?v2_3dMez51Kq4H2hmPc" target="_blank" rel="noopener noreferrer">Install LEAP <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_Lsz_xOMrLZZqSxss" target="_blank" rel="noopener noreferrer">AIOps LEAP release notes from Xanadu to Australia <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_CdVBPHReP8zrYwBM" target="_blank" rel="noopener noreferrer">ITOM AIOps LEAP Delta Deck | Yokohama Q2 Store Release <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_EOZEVNvDwZQtzZ3f" target="_blank" rel="noopener noreferrer">IT Operations Management (ITOM) Internal Deck | Australia Release <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_DAynyc5O1xhZE_bq" target="_blank" rel="noopener noreferrer">ITOM LEAP <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_xC4AYIEx-NAtVzsS" target="_blank" rel="noopener noreferrer">ITOM Visibility &amp; LEAP Deep Dive Content Customer Deck | Q3 2026 <span aria-hidden="true">↗</span></a></li></ul>
+    <a class="back" href="#comparison">↑ Back to comparison</a>
+    </section><section class="tool" id="forge-mining" aria-labelledby="forge-mining-heading">
+    <header><h2 id="forge-mining-heading">Forge Mining</h2><p class="lede">Build a field discovery readout</p></header>
+    <dl><div><dt>One-line scope</dt><dd>One-click FDE discovery accelerator that combines multiple signals into a field-ready recommendation story.</dd></div><div><dt>AI-powered?</dt><dd>Partly / indirectly</dd></div><div><dt>Primary domain</dt><dd>Cross-workflow; examples seen in ITSM, HRSD, and Customer Service</dd></div><div><dt>Customer-ready?</dt><dd>Store-listed scoped app, but field-positioned tool</dd></div><div><dt>Internal-only?</dt><dd>Mostly positioned as FDE / AC tool</dd></div><div><dt>License / entitlement</dt><dd>Not clearly documented in the sources found.</dd></div><div><dt>Best use case</dt><dd>Use when an SC or AC team wants a rapid discovery readout and business story from customer process data.</dd></div><div><dt>Overlap / caution</dt><dd>Uses mining and advisor-style signals; do not confuse it with standalone Process Mining.</dd></div><div><dt>Intro / release signal</dt><dd>Internal briefs and installation guides active in 2026.</dd></div></dl>
+    <p class="note">The CSV describes Store listing and field positioning separately. Confirm customer deployment eligibility and entitlement before proposing installation.</p>
+    <h3>Moveworks resources</h3>
+    <ul class="resources"><li><a href="https://app.moveworks.ai/r?v2_T7nWydIdP1s5nVMZ" target="_blank" rel="noopener noreferrer">Forge_Mining_Brief <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_vbfK406Ni_EqhoDX" target="_blank" rel="noopener noreferrer">Forge_Mining_Customer_Installation_Guide <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_WZ0vmDEyFZWAfQob" target="_blank" rel="noopener noreferrer">Forge Assets <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_GrhOL7zCnd3sNQeG" target="_blank" rel="noopener noreferrer">Forge_Mining_Deck <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_Suoh0zhd2utvwEon" target="_blank" rel="noopener noreferrer">Forge_Executive_Overview <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_cUOke9fvmdwGDCuz" target="_blank" rel="noopener noreferrer">ForgeMining <span aria-hidden="true">↗</span></a></li></ul>
+    <a class="back" href="#comparison">↑ Back to comparison</a>
+    </section><section class="tool" id="ai-workflow-factory" aria-labelledby="ai-workflow-factory-heading">
+    <header><h2 id="ai-workflow-factory-heading">AI Workflow Factory</h2><p class="lede">Frame enterprise transformation</p></header>
+    <dl><div><dt>One-line scope</dt><dd>Packaged offering for continuous transformation across discover, build, run, and extend.</dd></div><div><dt>AI-powered?</dt><dd>Yes</dd></div><div><dt>Primary domain</dt><dd>Cross-workflow / enterprise-wide</dd></div><div><dt>Customer-ready?</dt><dd>Yes</dd></div><div><dt>Internal-only?</dt><dd>No</dd></div><div><dt>License / entitlement</dt><dd>AI Workflow Factory Prime SKU (FF or UU); internal pricing and packaging materials show bundled platform capabilities and entitlements.</dd></div><div><dt>Best use case</dt><dd>Use when the conversation is enterprise-wide transformation, not just one discovery problem.</dd></div><div><dt>Overlap / caution</dt><dd>Umbrella commercial offer that packages several capabilities; not a single recommendation engine.</dd></div><div><dt>Intro / release signal</dt><dd>AI Workflow Factory Prime FAQ effective September 10, 2026.</dd></div></dl>
+    <p class="note">The CSV cites internal Prime packaging materials. Confirm current SKU terms and included entitlements for the customer.</p>
+    <h3>Moveworks resources</h3>
+    <ul class="resources"><li><a href="https://app.moveworks.ai/r?v2_vBpXuyWPx3FEdlpq" target="_blank" rel="noopener noreferrer">AI Workflow Factory Prime PnP FAQ <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_-9WxIsNpuRPaz78s" target="_blank" rel="noopener noreferrer">AI Workflow Factory First Call Deck <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_AKaoeETNp-ObB10k" target="_blank" rel="noopener noreferrer">AI Workflow Factory Pricing &amp; Packaging Deck <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_Kb9vhj1mXUlBCbi9" target="_blank" rel="noopener noreferrer">Autonomous Engineer Foundational Product Overview Deck <span aria-hidden="true">↗</span></a></li></ul>
+    <a class="back" href="#comparison">↑ Back to comparison</a>
+    </section><section class="tool" id="pov-hub" aria-labelledby="pov-hub-heading">
+    <header><h2 id="pov-hub-heading">POV Hub</h2><p class="lede">Run a proof of value</p></header>
+    <dl><div><dt>One-line scope</dt><dd>Internal POV operating framework and hub for running proof-of-value motions.</dd></div><div><dt>AI-powered?</dt><dd>No evidence it is itself an AI recommendation tool</dd></div><div><dt>Primary domain</dt><dd>Pre-sales / POV operations</dd></div><div><dt>Customer-ready?</dt><dd>No</dd></div><div><dt>Internal-only?</dt><dd>Yes</dd></div><div><dt>License / entitlement</dt><dd>Not applicable as a customer product.</dd></div><div><dt>Best use case</dt><dd>Use when running or coordinating a POV motion, not when discovering automation opportunities inside production data.</dd></div><div><dt>Overlap / caution</dt><dd>Related to evaluation delivery and execution, not to recommendation engines.</dd></div><div><dt>Intro / release signal</dt><dd>Internal POV process and blueprint materials active in 2026.</dd></div></dl>
+    
+    <h3>Moveworks resources</h3>
+    <ul class="resources"><li><a href="https://app.moveworks.ai/r?v2_iIOa4ermqEDWUqg3" target="_blank" rel="noopener noreferrer">POV Store Blueprint <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_Idv75kWEz6MKqYt2" target="_blank" rel="noopener noreferrer">POV-Process-Overview <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_MU18eLdrlaudH6SY" target="_blank" rel="noopener noreferrer">Draft AI POV Definitions and Details (March26) <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_RCp4Idul5IW8RxEe" target="_blank" rel="noopener noreferrer">Security360 POV Guidance <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_kxlb7AsuLJ8EzNKy" target="_blank" rel="noopener noreferrer">[Internal] EmployeeWorks POV Process Overview <span aria-hidden="true">↗</span></a></li></ul>
+    <a class="back" href="#comparison">↑ Back to comparison</a>
+    </section><section class="tool" id="ai-agent-advisor-labs" aria-labelledby="ai-agent-advisor-labs-heading">
+    <header><h2 id="ai-agent-advisor-labs-heading">AI Agent Advisor Labs</h2><p class="lede">Prepare an internal lab or demo</p></header>
+    <dl><div><dt>One-line scope</dt><dd>Pre-sales lab package of the advisor concept, formerly AgentScout.</dd></div><div><dt>AI-powered?</dt><dd>Yes, in purpose</dd></div><div><dt>Primary domain</dt><dd>Pre-sales / labs</dd></div><div><dt>Customer-ready?</dt><dd>No evidence of GA productization</dd></div><div><dt>Internal-only?</dt><dd>Yes</dd></div><div><dt>License / entitlement</dt><dd>Not found; distributed as internal application packages / XMLs.</dd></div><div><dt>Best use case</dt><dd>Use when SCs want a lab or demo environment rather than the customer-facing GA product.</dd></div><div><dt>Overlap / caution</dt><dd>Easy to confuse with AI Agent Advisor; treat it as internal enablement, not the production product.</dd></div><div><dt>Intro / release signal</dt><dd>Internal package versions 2.8–3.0.1 seen in 2026.</dd></div></dl>
+    <p class="note">The CSV records internal package versions and no evidence of a generally available customer product.</p>
+    <h3>Moveworks resources</h3>
+    <ul class="resources"><li><a href="https://app.moveworks.ai/r?v2_14ZRrFo8OIo2gY52" target="_blank" rel="noopener noreferrer">AI_Agent_Advisor_Labs_2.8.2.xml <span aria-hidden="true">↗</span></a></li><li><a href="https://app.moveworks.ai/r?v2_Ez4B2E2XOq7nU0BZ" target="_blank" rel="noopener noreferrer">AIAgentAdvisorLabs_2.8.xml <span aria-hidden="true">↗</span></a></li></ul>
+    <a class="back" href="#comparison">↑ Back to comparison</a>
+    </section>
+<section class="shared" id="combined" aria-labelledby="combined-heading">
+<h2 id="combined-heading">Combined resource</h2>
+<ul class="resources"><li><a href="https://app.moveworks.ai/r?v2_rdZwSxKxip15VX6K" target="_blank" rel="noopener noreferrer">Resources to drive AI Adoption for Customers: Tools, Playbooks &amp; Support <span aria-hidden="true">↗</span></a></li></ul>
+<a class="back" href="#comparison">↑ Back to comparison</a>
+</section>
+</main>
+</div>
+<script>
+const navigationLinks = document.querySelectorAll('nav a');
+function markSelectedSection() {
+  const current = location.hash || '#comparison';
+  for (const link of navigationLinks) {
+    if (link.hash === current) link.setAttribute('aria-current', 'location');
+    else link.removeAttribute('aria-current');
+  }
+}
+window.addEventListener('hashchange', markSelectedSection);
+markSelectedSection();
+</script>
+</body>
+</html>
